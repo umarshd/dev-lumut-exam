@@ -122,4 +122,11 @@ class Post extends BaseController
         session()->setFlashdata('success', 'Data berhasil diubah');
         return redirect()->to('/admin/post');
     }
+
+    public function delete($id)
+    {
+        $this->PostModel->delete($id);
+        session()->setFlashdata('success', 'Data berhasil dihapus');
+        return redirect()->to('/admin/post');
+    }
 }
