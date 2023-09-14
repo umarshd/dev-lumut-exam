@@ -79,4 +79,47 @@ class Post extends BaseController
         ];
         return view('admin/post/edit', $data);
     }
+
+    public function prosesEdit()
+    {
+        $rules = $this->validate([
+            'title' => [
+                'rules' => 'required|is_unique[post.title]',
+                'errors' => [
+                    'required' => 'Title tidak boleh kosong',
+                    'is_unique' => 'Title sudah ada'
+                ]
+            ],
+            'content' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Content tidak boleh kosong'
+                ]
+            ],
+            'date' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Date tidak boleh kosong'
+                ]
+            ],
+        ]);
+
+        if (!$rules) {
+            session()->setFlashdata('errors', $this->validator->listErrors());
+            return redirect()->to('/admin/post/tambah')->withInput();
+        }
+
+        $id = $this->request->getPost('idpost');
+
+        $data = [
+            'title' => $this->request->getPost('title'),
+            'content' => $this->request->getPost('content'),
+            'date' => $this->request->getPost('date'),
+            'username' => session()->get('username')
+        ];
+
+        $this->PostModel->update($id, $data);
+        session()->setFlashdata('success', 'Data berhasil diubah');
+        return redirect()->to('/admin/post');
+    }
 }
