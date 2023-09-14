@@ -22,5 +22,11 @@ class Post extends BaseController
         return view('admin/post/index', $data);
     }
 
-
+    public function tambah()
+    {
+        $data = [
+            'title' => 'Tambah Post',
+        ];
+        return view('admin/post/tambah', $data);
+    }
 }
