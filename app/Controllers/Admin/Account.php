@@ -20,4 +20,12 @@ class Account extends BaseController
         ];
         return view('admin/account/index', $data);
     }
+
+    public function tambah()
+    {
+        $data = [
+            'title' => 'Tambah Account',
+        ];
+        return view('admin/account/tambah', $data);
+    }
 }
