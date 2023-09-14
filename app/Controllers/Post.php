@@ -70,4 +70,13 @@ class Post extends BaseController
         session()->setFlashdata('success', 'Data berhasil ditambahkan');
         return redirect()->to('/admin/post');
     }
+
+    public function edit($id)
+    {
+        $data = [
+            'title' => 'Edit Post',
+            'post' => $this->PostModel->find($id)
+        ];
+        return view('admin/post/edit', $data);
+    }
 }
