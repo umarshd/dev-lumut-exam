@@ -22,6 +22,9 @@
         <div class="col-lg-2 card ms-2">
             <a href="<?= base_url() ?>/admin/post">Post</a>
         </div>
+        <div class="col-lg-2 card ms-2">
+            <a href="<?= base_url() ?>/logout">Logout</a>
+        </div>
     </div>
 
     <?= $this->renderSection('content') ?>

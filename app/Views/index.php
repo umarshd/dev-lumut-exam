@@ -19,25 +19,7 @@
             <div class="card p-3">
                 <h1>Selamat Datang</h1>
                 <h4>Silahkan Login Untuk Mengakses Sistem</h4>
-                <?php if (session()->getFlashdata('errors')): ?>
-                    <div class="alert alert-danger mt-3" role="alert">
-                        <?= session()->getFlashdata('errors') ?>
-                    </div>
-                <?php endif; ?>
-                <form action="<?= base_url() ?>/proses/login" class="mt-4" method="post">
-                    <div class="form-group py-1">
-                        <label>Username</label>
-                        <input type="text" name="username" class="form-control" placeholder="masukan username">
-                    </div>
-                    <div class="form-group py-1">
-                        <label>Password</label>
-                        <input type="password" name="password" class="form-control" placeholder="masukan password">
-                    </div>
-                    <button class="mt-4 btn btn-primary w-100">Login</button>
-                    <div class="text-center">
-                        <a href="<?= base_url() ?>/">Beranda</a>
-                    </div>
-                </form>
+                <a href="<?= base_url() ?>/auth/login">Login</a>
             </div>
         </div>
     </div>
