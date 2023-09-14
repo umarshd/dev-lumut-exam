@@ -11,6 +11,7 @@ class AccountModel extends Model
     protected $returnType = 'array';
     protected $allowedFields =
         [
+            'username',
             'name',
             'password',
             'role'

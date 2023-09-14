@@ -20,7 +20,7 @@ $routes->group('admin', ['filter => authAdminFilter'], function ($routes) {
     $routes->get('post/delete/(:segment)', 'Admin\Post::delete/$1');
 
     $routes->get('account', 'Admin\Account::index');
-    $routes->get('account/tambah', 'Admin\Account::tmbah');
+    $routes->get('account/tambah', 'Admin\Account::tambah');
     $routes->post('account/proses/tambah', 'Admin\Account::prosesTambah');
     $routes->get('account/edit/(:segment)', 'Admin\Account::edit/$1');
     $routes->post('account/edit/proses', 'Admin\Account::prosesEdit/$1');

@@ -2,7 +2,7 @@
 <?= $this->section('content') ?>
 <section class=" container my-5">
     <h3 class="text-center">POST</h3>
-    <a href="<?= base_url() ?>admin/post/tambah" class="btn btn-primary btn-sm border-radius-5">Tambah</a>
+    <a href="<?= base_url() ?>admin/account/tambah" class="btn btn-primary btn-sm border-radius-5">Tambah</a>
     <?php if (session()->get('error')): ?>
         <div class="alert alert-danger" role="alert">
             <?= session()->get('error') ?>
@@ -16,46 +16,42 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>Title</th>
+                <th>Name</th>
                 <th>Username</th>
-                <th>Date</th>
                 <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
             <?php $i = 1 ?>
-            <?php if (count($posts) < 1): ?>
+            <?php if (count($accounts) < 1): ?>
                 <tr>
                     <td colspan="4" class="text-center">Data tidak ditemukan</td>
                 </tr>
             <?php endif ?>
-            <?php foreach ($posts as $post): ?>
+            <?php foreach ($accounts as $account): ?>
                 <tr>
                     <td>
                         <?= $i++ ?>
                     </td>
                     <td>
-                        <?= $post['title'] ?>
+                        <?= $account['name'] ?>
                     </td>
                     <td>
-                        <?= $post['username'] ?>
+                        <?= $account['username'] ?>
                     </td>
                     <td>
-                        <?= $post['date'] ?>
-                    </td>
-                    <td>
-                        <a href="<?= base_url('/admin/post/' . '/edit/' . $post['idpost']) ?>"
+                        <a href="<?= base_url('/admin/account/' . '/edit/' . $account['username']) ?>"
                             class="nav-link d-inline px-0">
                             <span class="badge bg-secondary">Edit</span>
                         </a>
                         <button type="button" class="border-0" style="background: transparent;" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal<?= $post['idpost'] ?>">
+                            data-bs-target="#exampleModal<?= $account['username'] ?>">
                             <span class=" badge bg-danger ">Delete</span>
                         </button>
                     </td>
                 </tr>
 
-                <div class="modal fade" id="exampleModal<?= $post['idpost'] ?>" tabindex="-1"
+                <div class="modal fade" id="exampleModal<?= $account['username'] ?>" tabindex="-1"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -70,7 +66,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <a href="<?= base_url('/admin/post/' . '/delete/' . $post['idpost']) ?>"
+                                <a href="<?= base_url('/admin/account/' . '/delete/' . $account['username']) ?>"
                                     class="btn btn-danger">Delete</a>
                             </div>
                         </div>

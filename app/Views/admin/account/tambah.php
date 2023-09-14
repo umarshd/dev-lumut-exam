@@ -12,19 +12,32 @@
             <?= session()->get('success') ?>
         </div>
     <?php endif ?>
-    <form action="<?= base_url() ?>/admin/post/proses/tambah" method="post">
+    <form action="<?= base_url() ?>/admin/account/proses/tambah" method="post">
 
         <div class="form-group py-1">
-            <label>Title</label>
-            <input class="form-control" type="text" name="title" placeholder="Masukan title">
+            <label>Name</label>
+            <input class="form-control" type="text" name="name" placeholder="Masukan nama">
         </div>
         <div class="form-group py-1">
-            <label>Date</label>
-            <input class="form-control" type="date" name="date" placeholder="Masukan date">
+            <label>Username</label>
+            <input class="form-control" type="text" name="username" placeholder="Masukan username">
         </div>
         <div class="form-group py-1">
-            <label>Content</label>
-            <textarea name="content" class="form-control" id="" cols="30" rows="10"></textarea>
+            <label>Password</label>
+            <input class="form-control" type="password" name="password" placeholder="Masukan password">
+        </div>
+        <div class="form-group py-1">
+            <label>Password Konfirmasi</label>
+            <input class="form-control" type="password" name="password_konfirmasi"
+                placeholder="Masukan password konfirmasi">
+        </div>
+        <div class="form-group">
+            <label>Role</label>
+            <select class="form-control" name="role">
+                <option disabled selected>Pilih role</option>
+                <option value="admin">Admin</option>
+                <option value="author">Author</option>
+            </select>
         </div>
 
         <button class="btn btn-primary w-100 mt-3" type="submit">Tambah</button>
