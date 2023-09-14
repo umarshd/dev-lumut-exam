@@ -34,10 +34,9 @@ class Post extends BaseController
     {
         $rules = $this->validate([
             'title' => [
-                'rules' => 'required|is_unique[post.title]',
+                'rules' => 'required',
                 'errors' => [
                     'required' => 'Title tidak boleh kosong',
-                    'is_unique' => 'Title sudah ada'
                 ]
             ],
             'content' => [
@@ -84,10 +83,9 @@ class Post extends BaseController
     {
         $rules = $this->validate([
             'title' => [
-                'rules' => 'required|is_unique[post.title]',
+                'rules' => 'required',
                 'errors' => [
                     'required' => 'Title tidak boleh kosong',
-                    'is_unique' => 'Title sudah ada'
                 ]
             ],
             'content' => [
@@ -109,7 +107,7 @@ class Post extends BaseController
             return redirect()->to('/admin/post/tambah')->withInput();
         }
 
-        $id = $this->request->getPost('idpost');
+        $id = $this->request->getPost('id');
 
         $data = [
             'title' => $this->request->getPost('title'),
