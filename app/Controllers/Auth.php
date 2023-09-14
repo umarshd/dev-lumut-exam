@@ -48,7 +48,7 @@ class Auth extends BaseController
 
         if (!$cek) {
             session()->setFlashdata('errors', 'Username atau password salah');
-            return redirect()->to('/auth/login')->withInput();
+            return redirect()->to('/')->withInput();
         }
 
         $password_hash = password_verify($password, $cek['password']);
