@@ -67,9 +67,9 @@ class Auth extends BaseController
         session()->set($data);
 
         if ($cek['role'] == 'admin') {
-            return redirect()->to('/admin');
+            return redirect()->to('/admin/post');
         } else {
-            return redirect()->to('/author');
+            return redirect()->to('/author/post');
         }
     }
 
