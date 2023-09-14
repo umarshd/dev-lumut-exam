@@ -84,11 +84,11 @@ class Account extends BaseController
         return redirect()->to('/admin/account');
     }
 
-    public function edit($id)
+    public function edit($username)
     {
         $data = [
             'title' => 'Edit Account',
-            'account' => $this->AccountModel->find($id)
+            'account' => $this->AccountModel->find($username)
         ];
         return view('admin/account/edit', $data);
     }
@@ -196,6 +196,13 @@ class Account extends BaseController
 
         $this->AccountModel->update($username, $data);
         session()->setFlashdata('success', 'Berhasil mengubah data.');
+        return redirect()->to('/admin/account');
+    }
+
+    public function delete($username)
+    {
+        $this->AccountModel->delete($username);
+        session()->setFlashdata('success', 'Berhasil menghapus data.');
         return redirect()->to('/admin/account');
     }
 }
