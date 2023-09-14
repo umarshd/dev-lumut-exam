@@ -38,7 +38,7 @@ class Auth extends BaseController
 
         if (!$rules) {
             session()->setFlashdata('errors', $this->validator->listErrors());
-            return redirect()->to('/auth/login')->withInput();
+            return redirect()->to('/')->withInput();
         }
 
         $username = $this->request->getVar('username');
@@ -55,7 +55,7 @@ class Auth extends BaseController
 
         if (!$password_hash) {
             session()->setFlashdata('errors', 'Username atau password salah');
-            return redirect()->to('/auth/login')->withInput();
+            return redirect()->to('/')->withInput();
         }
 
         $data = [
