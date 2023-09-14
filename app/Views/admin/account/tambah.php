@@ -2,7 +2,7 @@
 <?= $this->section('content') ?>
 <section class=" container my-5">
     <h3 class="text-center">POST</h3>
-    <a href="<?= base_url() ?>admin/post" class="btn btn-primary btn-sm border-radius-5">Kembali</a>
+    <a href="<?= base_url() ?>admin/account" class="btn btn-primary btn-sm border-radius-5">Kembali</a>
     <?php if (session()->get('errors')): ?>
         <div class="alert alert-danger" role="alert">
             <?= session()->get('errors') ?>
