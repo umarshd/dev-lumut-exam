@@ -83,4 +83,13 @@ class Account extends BaseController
         session()->setFlashdata('success', 'Berhasil menambahkan data.');
         return redirect()->to('/admin/account');
     }
+
+    public function edit($id)
+    {
+        $data = [
+            'title' => 'Edit Account',
+            'account' => $this->AccountModel->find($id)
+        ];
+        return view('admin/account/edit', $data);
+    }
 }
