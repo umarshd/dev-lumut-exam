@@ -19,6 +19,7 @@
                 <th>Title</th>
                 <th>Username</th>
                 <th>Date</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -37,18 +38,24 @@
                         <?= $post['title'] ?>
                     </td>
                     <td>
+                        <?= $post['username'] ?>
+                    </td>
+                    <td>
+                        <?= $post['date'] ?>
+                    </td>
+                    <td>
                         <a href="<?= base_url('/admin/post/' . '/edit' . $post['idpost']) ?>"
                             class="nav-link d-inline px-0">
                             <span class="badge bg-secondary">Edit</span>
                         </a>
                         <button type="button" class="border-0" style="background: transparent;" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal<?= $post['id'] ?>">
+                            data-bs-target="#exampleModal<?= $post['idpost'] ?>">
                             <span class=" badge bg-danger ">Delete</span>
                         </button>
                     </td>
                 </tr>
 
-                <div class="modal fade" id="exampleModal<?= $post['id'] ?>" tabindex="-1"
+                <div class="modal fade" id="exampleModal<?= $post['idpost'] ?>" tabindex="-1"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -63,7 +70,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <a href="<?= base_url('/admin/post/' . $post['id'] . '/delete') ?>"
+                                <a href="<?= base_url('/admin/post/' . '/delete' . $post['idpost']) ?>"
                                     class="btn btn-danger">Delete</a>
                             </div>
                         </div>

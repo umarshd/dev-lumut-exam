@@ -13,7 +13,7 @@ $routes->get('/logout', 'Auth::logout');
 $routes->group('admin', ['filter => authAdminFilter'], function ($routes) {
 
     $routes->get('post', 'Admin\Post::index');
-    $routes->get('post/tambah', 'Admin\Post::tmbah');
+    $routes->get('post/tambah', 'Admin\Post::tambah');
     $routes->post('post/proses/tambah', 'Admin\Post::prosesTambah');
     $routes->get('post/edit/(:segment)', 'Admin\Post::edit/$1');
     $routes->post('post/edit/proses', 'Admin\Post::prosesEdit/$1');
