@@ -1,8 +1,8 @@
-<?= $this->extend('layouts/admin_layout') ?>
+<?= $this->extend('layouts/author_layout') ?>
 <?= $this->section('content') ?>
 <section class=" container my-5">
     <h3 class="text-center">POST</h3>
-    <a href="<?= base_url() ?>admin/post/tambah" class="btn btn-primary btn-sm border-radius-5">Tambah</a>
+    <a href="<?= base_url() ?>author/post/tambah" class="btn btn-primary btn-sm border-radius-5">Tambah</a>
     <?php if (session()->get('error')): ?>
         <div class="alert alert-danger" role="alert">
             <?= session()->get('error') ?>
@@ -44,7 +44,7 @@
                         <?= $post['date'] ?>
                     </td>
                     <td>
-                        <a href="<?= base_url('/admin/post/' . '/edit/' . $post['idpost']) ?>"
+                        <a href="<?= base_url('/author/post/' . '/edit/' . $post['idpost']) ?>"
                             class="nav-link d-inline px-0">
                             <span class="badge bg-secondary">Edit</span>
                         </a>
@@ -70,7 +70,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <a href="<?= base_url('/admin/post/' . '/delete/' . $post['idpost']) ?>"
+                                <a href="<?= base_url('/author/post/' . '/delete/' . $post['idpost']) ?>"
                                     class="btn btn-danger">Delete</a>
                             </div>
                         </div>

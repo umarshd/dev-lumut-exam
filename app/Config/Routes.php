@@ -28,3 +28,14 @@ $routes->group('admin', ['filter => authAdminFilter'], function ($routes) {
     $routes->get('account/delete/(:segment)', 'Admin\Account::delete/$1');
 
 });
+
+$routes->group('author', ['filter => authAuthorFilter'], function ($routes) {
+
+    $routes->get('post', 'Author\Post::index');
+    $routes->get('post/tambah', 'Author\Post::tambah');
+    $routes->post('post/proses/tambah', 'Author\Post::prosesTambah');
+    $routes->get('post/edit/(:segment)', 'Author\Post::edit/$1');
+    $routes->post('post/edit/proses', 'Author\Post::prosesEdit/$1');
+    $routes->get('post/delete/(:segment)', 'Author\Post::delete/$1');
+
+});
